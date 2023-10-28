@@ -1,8 +1,7 @@
-import discord
+from discord import ApplicationContext as Context
 from discord.ext import commands
-from discord.ext.commands import Context
 from discord.ext.commands import MissingAnyRole, MemberNotFound
-from discord.member import Member
+
 
 class ErrorHandler(commands.Cog):
 
@@ -16,6 +15,6 @@ class ErrorHandler(commands.Cog):
         if isinstance(err, MemberNotFound):
             await ctx.send(f"Sorry {ctx.author.mention}, I can't find that user. Please double check the spelling.", delete_after=20)
 
-   
+
 def setup(bot):
     bot.add_cog(ErrorHandler(bot))
